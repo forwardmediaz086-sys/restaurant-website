@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ชื่อร้านอาหารของคุณ</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ฟอนต์ไทย -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #FFFEFA;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(233, 213, 255, 0.55), transparent 55%),
+      radial-gradient(circle at 80% 70%, rgba(209, 250, 229, 0.55), transparent 55%);
+  }
+</style>
+
+</head>
+<body class="text-slate-800">
+
+<!-- Navbar -->
+<header class="fixed inset-x-0 top-0 z-30 bg-[#FFFEFA]/90 backdrop-blur shadow-sm border-b border-purple-100">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    
+    <!-- โลโก้ + ชื่อร้าน -->
+    <div class="flex items-center gap-2">
+      <div class="h-9 w-9 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold shadow">
+        ร
+      </div>
+      <span class="font-semibold text-lg text-purple-700" data-i18n="nav_brand">ชื่อร้านอาหารของคุณ</span>
+    </div>
+
+    <!-- เมนูบน Desktop -->
+    <ul class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <li><a href="#hero" class="hover:text-purple-600" data-i18n="nav_home">หน้าแรก</a></li>
+      <li><a href="#menu" class="hover:text-purple-600" data-i18n="nav_menu">เมนู</a></li>
+      <li><a href="#about" class="hover:text-purple-600" data-i18n="nav_about">เกี่ยวกับร้าน</a></li>
+      <li><a href="#reviews" class="hover:text-purple-600" data-i18n="nav_reviews">รีวิว</a></li>
+      <li><a href="#contact" class="hover:text-purple-600" data-i18n="nav_contact">ติดต่อเรา</a></li>
+    </ul>
+
+    <!-- ปุ่มทางขวา -->
+    <div class="hidden md:flex items-center gap-3">
+
+      <!-- ปุ่มเปลี่ยนภาษา -->
+      <div class="flex items-center gap-1">
+        <button onclick="setLanguage('th')"
+                class="text-xs font-semibold px-2 py-1 rounded-full border border-purple-200 bg-white text-purple-700 hover:bg-purple-50">
+          TH
+        </button>
+        <button onclick="setLanguage('en')"
+                class="text-xs font-semibold px-2 py-1 rounded-full border border-purple-200 bg-white text-purple-700 hover:bg-purple-50">
+          EN
+        </button>
+      </div>
+
+      <!-- ปุ่มโทรจองโต๊ะ -->
+      <a href="tel:0812345678"
+         class="rounded-full border border-green-400 px-4 py-1.5 text-sm font-semibold text-green-700 bg-white hover:bg-green-50 shadow-sm"
+         data-i18n="nav_call">
+        โทรจองโต๊ะ
+      </a>
+    </div>
+
+  </nav>
+</header>
+
+
+  <!-- Hero Section -->
+  <section id="hero" class="pt-24 md:pt-28">
+    <div class="mx-auto flex max-w-6xl flex-col-reverse items-center gap-10 px-4 py-10 md:flex-row md:py-16">
+      <div class="w-full md:w-1/2 space-y-4">
+        <p class="text-sm uppercase tracking-[0.25em] text-purple-500">
+          ร้านอาหารโฮมเมดบรรยากาศอบอุ่น
+        </p>
+        <h1 class="text-3xl md:text-4xl font-bold leading-snug">
+          ชื่อร้านอาหารของคุณ
+          <span class="block text-2xl md:text-3xl text-purple-600">
+            อาหารไทย-โฮมเมด รสมือบ้านแท้ ๆ
+          </span>
+        </h1>
+        <p class="text-slate-600">
+          เสิร์ฟความอร่อยทำสดใหม่ทุกจาน เลือกใช้วัตถุดิบจากชุมชนและผักปลอดสาร
+          พร้อมบรรยากาศเรียบง่ายสบาย ๆ เหมือนมาทานข้าวที่บ้านคนสนิท
+        </p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="#menu"
+             class="rounded-full bg-purple-500 px-6 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-purple-600">
+            ดูเมนูแนะนำ
+          </a>
+          <a href="#contact"
+             class="rounded-full border border-purple-200 px-6 py-2.5 text-sm font-semibold text-purple-700 bg-white hover:bg-purple-50">
+            ดูแผนที่ร้าน
+          </a>
+        </div>
+        <div class="pt-4 text-sm text-slate-500">
+          ⏰ เปิดทุกวัน 10:00–21:00 น. • 📍 ระบุที่อยู่ร้านของคุณที่นี่
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2">
+        <div class="relative overflow-hidden rounded-3xl bg-purple-100 shadow-lg border border-purple-100">
+          <!-- เปลี่ยนเป็น <img> รูปจริงของร้านได้ -->
+          <div class="aspect-[4/3] bg-[url('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg')] bg-cover bg-center"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-purple-900/40 via-transparent"></div>
+          <div class="absolute bottom-3 right-3 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-green-700 shadow">
+            เมนูแนะนำ: กะเพราหมูกรอบ • แกงเขียวหวานไก่
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-12 md:py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="mb-6 flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-purple-700">เมนูแนะนำ</h2>
+          <p class="text-slate-500 text-sm md:text-base">
+            คัดสรรเมนูขายดีและเมนูซิกเนเจอร์ของร้าน สามารถปรับชื่อและราคาให้ตรงกับร้านจริงได้
+          </p>
+        </div>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- เมนู 1 -->
+        <article class="rounded-2xl border border-purple-100 bg-white p-4 shadow-sm">
+          <div class="mb-3 h-32 rounded-xl bg-[url('https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg')] bg-cover bg-center"></div>
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-semibold text-slate-800">ผัดกะเพราหมูกรอบไข่ดาว</h3>
+            <span class="text-green-700 font-bold">75.-</span>
+          </div>
+          <p class="mt-1 text-sm text-slate-600">
+            หมูกรอบทอดใหม่ผัดกับใบกะเพราหอม ๆ รสชาติจัดจ้าน เสิร์ฟพร้อมไข่ดาวกรอบนอกนุ่มใน
+          </p>
+          <span class="mt-2 inline-flex rounded-full bg-green-50 px-3 py-0.5 text-[11px] font-semibold text-green-700">
+            เมนูยอดนิยม
+          </span>
+        </article>
+
+        <!-- เมนู 2 -->
+        <article class="rounded-2xl border border-purple-100 bg-white p-4 shadow-sm">
+          <div class="mb-3 h-32 rounded-xl bg-[url('https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg')] bg-cover bg-center"></div>
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-semibold text-slate-800">แกงเขียวหวานไก่</h3>
+            <span class="text-green-700 font-bold">110.-</span>
+          </div>
+          <p class="mt-1 text-sm text-slate-600">
+            แกงเขียวหวานรสนุ่ม กลมกล่อม หอมใบโหระพาและพริกชี้ฟ้าแดง ทานคู่กับข้าวสวยร้อน ๆ เข้ากันที่สุด
+          </p>
+          <span class="mt-2 inline-flex rounded-full bg-purple-50 px-3 py-0.5 text-[11px] font-semibold text-purple-700">
+            เมนูแนะนำ
+          </span>
+        </article>
+
+        <!-- เมนู 3 -->
+        <article class="rounded-2xl border border-purple-100 bg-white p-4 shadow-sm">
+          <div class="mb-3 h-32 rounded-xl bg-[url('https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg')] bg-cover bg-center"></div>
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-semibold text-slate-800">สลัดผักโฮมเมดน้ำสลัดงาญี่ปุ่น</h3>
+            <span class="text-green-700 font-bold">89.-</span>
+          </div>
+          <p class="mt-1 text-sm text-slate-600">
+            ผักสลัดสดกรอบจากฟาร์มใกล้เคียง ราดด้วยน้ำสลัดงาญี่ปุ่นสูตรโฮมเมด หอมมัน กินเพลิน
+          </p>
+          <span class="mt-2 inline-flex rounded-full bg-green-50 px-3 py-0.5 text-[11px] font-semibold text-green-700">
+            สายเฮลตี้ต้องลอง
+          </span>
+        </article>
+      </div>
+
+      <p class="mt-4 text-xs text-slate-500">
+        * คุณสามารถเพิ่ม/ลบเมนู หรือแบ่งหมวด “กับข้าว”, “จานเดียว”, “เครื่องดื่ม”, “ของหวาน” ได้ตามต้องการ
+      </p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-12 md:py-16">
+    <div class="mx-auto max-w-6xl px-4 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold mb-3 text-purple-700">เกี่ยวกับร้าน</h2>
+        <p class="text-slate-600 mb-3">
+          ร้านของเราเน้นอาหารโฮมเมด ทำสดใหม่ทีละจาน เลือกใช้วัตถุดิบคุณภาพจากตลาดท้องถิ่น
+          และผักปลอดสารจากเกษตรกรในชุมชน เพื่อให้ได้ทั้งความอร่อยและความสบายใจในทุกคำที่ทาน
+        </p>
+        <p class="text-slate-600 mb-3">
+          บรรยากาศร้านตกแต่งเรียบง่ายในโทนสีม่วงและเขียว ให้ความรู้สึกสดชื่น ผ่อนคลาย
+          เหมาะทั้งสำหรับครอบครัว คู่รัก และกลุ่มเพื่อนที่อยากมานั่งทานข้าวชิล ๆ
+        </p>
+        <ul class="mt-2 space-y-1 text-sm text-slate-700">
+          <li>• วัตถุดิบสดใหม่ เปลี่ยนตามฤดูกาล</li>
+          <li>• มีเมนูทางเลือกสำหรับสายสุขภาพและมังสวิรัติ</li>
+          <li>• รองรับการชำระเงินสด / โอน / สแกน QR</li>
+        </ul>
+      </div>
+      <div class="space-y-3">
+        <div class="rounded-2xl bg-white p-4 shadow-sm border border-purple-100">
+          <h3 class="font-semibold mb-1 text-purple-700">บรรยากาศร้าน</h3>
+          <p class="text-sm text-slate-600">
+            โทนสีม่วงอ่อนและเขียวใบไม้ ผสมกับแสงไฟวอร์มไวท์ ทำให้ร้านดูอบอุ่น
+            มีมุมที่นั่งหลากหลาย ทั้งโต๊ะเล็กสำหรับสองคนและโต๊ะใหญ่สำหรับครอบครัว
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white p-4 shadow-sm border border-purple-100">
+          <h3 class="font-semibold mb-1 text-purple-700">จุดเด่นของเรา</h3>
+          <p class="text-sm text-slate-600">
+            เราใส่ใจรายละเอียดทุกจาน ตั้งแต่การเตรียมวัตถุดิบ การปรุง ไปจนถึงการจัดจาน
+            เพื่อให้ทั้งรสชาติและหน้าตาดูน่าทานในเวลาเดียวกัน
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="bg-purple-50/70 py-12 md:py-16 border-y border-purple-100">
+    <div class="mx-auto max-w-6xl px-4">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-purple-700">เสียงจากลูกค้า</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        <figure class="rounded-2xl bg-white p-4 shadow-sm border border-purple-100">
+          <p class="text-sm text-slate-700">
+            “อาหารอร่อยมากค่ะ รสมือบ้านแท้ ๆ บรรยากาศร้านก็น่ารัก ถ่ายรูปออกมาสวยทุกมุมเลย”
+          </p>
+          <figcaption class="mt-3 text-xs text-slate-500">
+            — คุณเอ๋, ลูกค้าประจำ
+          </figcaption>
+        </figure>
+        <figure class="rounded-2xl bg-white p-4 shadow-sm border border-purple-100">
+          <p class="text-sm text-slate-700">
+            “ประทับใจตรงใส่ใจรายละเอียดทุกจาน วัตถุดิบรู้สึกได้ว่าสดใหม่
+            เมนูแกงเขียวหวานกับสลัดคือแนะนำเลยครับ”
+          </p>
+          <figcaption class="mt-3 text-xs text-slate-500">
+            — คุณบอล, รีวิวจาก Facebook
+          </figcaption>
+        </figure>
+        <figure class="rounded-2xl bg-white p-4 shadow-sm border border-purple-100">
+          <p class="text-sm text-slate-700">
+            “พาครอบครัวมาทานบ่อย ๆ เด็ก ๆ ก็ชอบ ผู้ใหญ่ก็ถูกใจ มีเมนูให้เลือกได้หลายแบบดีค่ะ”
+          </p>
+          <figcaption class="mt-3 text-xs text-slate-500">
+            — คุณไหม, ลูกค้าประจำวันอาทิตย์
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12 md:py-16">
+    <div class="mx-auto max-w-6xl px-4 grid gap-8 md:grid-cols-[1.2fr,1fr]">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold mb-3 text-purple-700">ติดต่อร้าน</h2>
+        <p class="text-slate-600 mb-4">
+          สามารถโทรจองโต๊ะ สั่งอาหารล่วงหน้า หรือสอบถามเส้นทางได้ตามช่องทางด้านล่างนี้
+        </p>
+        <div class="space-y-2 text-sm">
+          <p>📞 โทร: <a href="tel:0812345678" class="text-green-700 font-semibold">081-234-5678</a></p>
+          <p>💬 Line: <span class="font-semibold text-purple-700">@yourrestaurant</span></p>
+          <p>📍 ที่อยู่: ระบุที่อยู่ร้านอาหารของคุณอย่างละเอียด เช่น บ้านเลขที่ / ถนน / ตำบล / อำเภอ / จังหวัด</p>
+          <p>⏰ เวลาเปิด-ปิด: ทุกวัน 10:00–21:00 น.</p>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href="tel:0812345678"
+             class="inline-flex items-center gap-1 rounded-full bg-green-500 px-5 py-2 text-sm font-semibold text-white shadow hover:bg-green-600">
+            โทรตอนนี้
+          </a>
+          <a href="#hero"
+             class="inline-flex items-center gap-1 rounded-full border border-purple-200 bg-white px-5 py-2 text-sm font-semibold text-purple-700 hover:bg-purple-50">
+            กลับไปด้านบน
+          </a>
+        </div>
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-purple-100 bg-white shadow-sm">
+        <!-- ตรงนี้ถ้าคุณมี Google Maps Embed ก็เอา iframe มาวางแทน div ด้านในได้เลย -->
+        <div class="aspect-[4/3] flex items-center justify-center text-xs text-slate-500 px-4 text-center">
+          พื้นที่สำหรับแผนที่ร้าน<br>
+          เมื่อต้องการ ใช้โค้ด Embed จาก Google Maps มาวางแทนส่วนนี้
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-purple-100 bg-[#FFFEFA] py-4">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 text-xs text-slate-500 md:flex-row">
+      <p>© <span id="year"></span> ชื่อร้านอาหารของคุณ — สงวนลิขสิทธิ์</p>
+      <p>ออกแบบและพัฒนาเว็บไซต์โดยเจ้าของร้าน / ทีมงานของคุณ</p>
+    </div>
+  </footer>
+
+  <script>
+  const translations = {
+    th: {
+      nav_brand: "ชื่อร้านอาหารของคุณ",
+      nav_home: "หน้าแรก",
+      nav_menu: "เมนู",
+      nav_about: "เกี่ยวกับร้าน",
+      nav_reviews: "รีวิว",
+      nav_contact: "ติดต่อเรา",
+      nav_call: "โทรจองโต๊ะ",
+    },
+    en: {
+      nav_brand: "Your Restaurant Name",
+      nav_home: "Home",
+      nav_menu: "Menu",
+      nav_about: "About",
+      nav_reviews: "Reviews",
+      nav_contact: "Contact",
+      nav_call: "Reserve Table",
+    }
+  };
+
+  function setLanguage(lang) {
+    const elements = document.querySelectorAll("[data-i18n]");
+    elements.forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+    localStorage.setItem("siteLanguage", lang);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("siteLanguage") || "th";
+    setLanguage(saved);
+  });
+
+    // ใส่ปีอัตโนมัติ
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
