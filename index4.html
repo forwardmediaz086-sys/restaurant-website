@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ชื่อร้านอาหารของคุณ | Chiang Rai Dining Experience</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ฟอนต์ไทย -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: #FFFEFA;  /* โทนสว่าง */
+      color: #0f172a;             /* text-slate-900 */
+      overflow-x: hidden;
+    }
+    html { scroll-behavior: smooth; }
+
+    /* พื้นหลังไล่สีม่วง/เขียวแบบสว่าง */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(233, 213, 255, 0.9), transparent 55%),
+        radial-gradient(circle at 85% 85%, rgba(209, 250, 229, 0.9), transparent 55%);
+    }
+  </style>
+</head>
+<body class="text-slate-800">
+
+<!-- NAVBAR -->
+<header class="fixed inset-x-0 top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <!-- โลโก้ -->
+    <div class="flex items-center gap-2">
+      <div class="h-9 w-9 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold shadow">
+        ร
+      </div>
+      <span class="font-semibold text-lg text-purple-800" data-i18n="nav_brand">
+        ชื่อร้านอาหารของคุณ
+      </span>
+    </div>
+
+    <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-700">
+      <li><a href="#hero" class="hover:text-purple-600" data-i18n="nav_home">หน้าแรก</a></li>
+      <li><a href="#experience" class="hover:text-purple-600">Experience</a></li>
+      <li><a href="#signature" class="hover:text-purple-600" data-i18n="nav_menu">เมนูซิกเนเจอร์</a></li>
+      <li><a href="#origin" class="hover:text-purple-600">วัตถุดิบท้องถิ่น</a></li>
+      <li><a href="#contact" class="hover:text-purple-600" data-i18n="nav_contact">ติดต่อเรา</a></li>
+    </ul>
+
+    <div class="hidden md:flex items-center gap-3">
+      <!-- ปุ่มภาษา -->
+      <div class="flex items-center gap-1">
+        <button onclick="setLanguage('th')"
+          class="text-xs font-semibold px-2 py-1 rounded-full border border-purple-200 bg-white text-purple-700 hover:bg-purple-50">
+          TH
+        </button>
+        <button onclick="setLanguage('en')"
+          class="text-xs font-semibold px-2 py-1 rounded-full border border-purple-200 bg-white text-purple-700 hover:bg-purple-50">
+          EN
+        </button>
+      </div>
+
+      <!-- ปุ่มจองโต๊ะ -->
+      <a href="tel:0812345678"
+        class="rounded-full border border-emerald-400 px-4 py-1.5 text-sm font-semibold text-emerald-700 bg-white hover:bg-emerald-50 shadow-sm"
+        data-i18n="nav_call">
+        โทรจองโต๊ะ
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO SLIDER -->
+<section id="hero" class="relative min-h-screen pt-16">
+  <div class="relative w-full h-[calc(100vh-4rem)] overflow-hidden rounded-b-3xl shadow-lg">
+
+    <!-- สไลด์ 1: บรรยากาศในร้าน -->
+    <div class="absolute inset-0 transition-opacity duration-700 ease-out" data-slide="0">
+      <div class="w-full h-full bg-[url('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+        <p class="text-xs md:text-sm tracking-[0.25em] uppercase text-purple-200 mb-2">
+          Chiang Rai • Indoor Dining
+        </p>
+        <h1 class="text-3xl md:text-5xl font-bold text-slate-50 mb-3">
+          PRIVATE DINING
+        </h1>
+        <p class="text-sm md:text-base text-slate-100 mb-6 max-w-2xl">
+          ห้องอาหารบรรยากาศอบอุ่น เหมาะสำหรับมื้อพิเศษกับครอบครัวและกลุ่มเพื่อน
+          พร้อมเมนูอาหารเหนือและไวน์ให้เลือกจับคู่
+        </p>
+        <a href="#contact"
+           class="rounded-full bg-slate-100/95 px-6 py-2.5 text-sm md:text-base font-semibold text-slate-900 hover:bg-white shadow">
+          จองโต๊ะ / สอบถามเพิ่มเติม
+        </a>
+      </div>
+    </div>
+
+    <!-- สไลด์ 2: โซนเอาต์ดอร์ -->
+    <div class="absolute inset-0 opacity-0 hidden transition-opacity duration-700 ease-out" data-slide="1">
+      <div class="w-full h-full bg-[url('https://images.pexels.com/photos/3801643/pexels-photo-3801643.jpeg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-black/35"></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+        <p class="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-200 mb-2">
+          Outdoor • Chill & Drink
+        </p>
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-50 mb-3">
+          GARDEN TERRACE
+        </h2>
+        <p class="text-sm md:text-base text-slate-100 mb-6 max-w-2xl">
+          โซนเอาต์ดอร์รับลมชมวิว เหมาะสำหรับนั่งชิลล์ จิบเบียร์
+          และแชร์ชุดออเดิร์ฟเหนือกับเพื่อน ๆ
+        </p>
+        <a href="#signature"
+           class="rounded-full bg-purple-500 px-6 py-2.5 text-sm md:text-base font-semibold text-white hover:bg-purple-400 shadow">
+          ดูเมนูออเดิร์ฟและเครื่องดื่ม
+        </a>
+      </div>
+    </div>
+
+    <!-- สไลด์ 3: วัตถุดิบประมงพื้นบ้าน -->
+    <div class="absolute inset-0 opacity-0 hidden transition-opacity duration-700 ease-out" data-slide="2">
+      <div class="w-full h-full bg-[url('https://images.pexels.com/photos/3296273/pexels-photo-3296273.jpeg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-black/35"></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+        <p class="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-200 mb-2">
+          Local Sourcing
+        </p>
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-50 mb-3">
+          จากประมงพื้นบ้านสู่จานอาหาร
+        </h2>
+        <p class="text-sm md:text-base text-slate-100 mb-6 max-w-2xl">
+          คัดสรรปลาสดจากประมงพื้นบ้านและผักจากเกษตรกรเชียงราย
+          เพื่อให้ทุกจานที่เสิร์ฟทั้งอร่อยและปลอดภัย ในราคาที่เข้าถึงได้
+        </p>
+        <a href="#origin"
+           class="rounded-full bg-slate-100/95 px-6 py-2.5 text-sm md:text-base font-semibold text-slate-900 hover:bg-white shadow">
+          รู้จักที่มาของวัตถุดิบเรา
+        </a>
+      </div>
+    </div>
+
+    <!-- ปุ่มลูกศรซ้ายขวา -->
+    <button type="button"
+      onclick="heroPrevSlide()"
+      class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/35 hover:bg-black/60 text-slate-100 w-9 h-9 flex items-center justify-center text-lg">
+      ‹
+    </button>
+    <button type="button"
+      onclick="heroNextSlide()"
+      class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/35 hover:bg-black/60 text-slate-100 w-9 h-9 flex items-center justify-center text-lg">
+      ›
+    </button>
+
+    <!-- จุดบอกสไลด์ -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+      <button type="button" data-dot="0"
+        onclick="heroGoToSlide(0)"
+        class="h-2.5 w-2.5 rounded-full bg-slate-300 border border-white/80"></button>
+      <button type="button" data-dot="1"
+        onclick="heroGoToSlide(1)"
+        class="h-2.5 w-2.5 rounded-full bg-slate-300 border border-white/80"></button>
+      <button type="button" data-dot="2"
+        onclick="heroGoToSlide(2)"
+        class="h-2.5 w-2.5 rounded-full bg-slate-300 border border-white/80"></button>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience" class="py-16">
+  <div class="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-[1.3fr,1fr]">
+    <div>
+      <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-4">
+        Chiang Rai Dining Experience
+      </h2>
+      <p class="text-sm md:text-base text-slate-700 mb-3">
+        เราอยากให้ทุกมื้อที่นี่เป็นมากกว่าการกินข้าว แต่เป็นช่วงเวลาที่ได้พักผ่อน
+        พูดคุย และใช้เวลากับคนสำคัญ ท่ามกลางบรรยากาศแบบเชียงรายแท้ ๆ
+      </p>
+      <p class="text-sm md:text-base text-slate-700 mb-4">
+        เลือกได้ทั้งโซนห้องแอร์เย็น ๆ นั่งสบาย หรือโซนเอาต์ดอร์รับลมชมวิวเมือง
+        พร้อมเสียงเพลงเบา ๆ และแสงไฟที่ทำให้ทุกโต๊ะดูพิเศษ
+      </p>
+      <ul class="space-y-2 text-sm text-slate-800">
+        <li>• โต๊ะรองรับทั้งคู่รัก ครอบครัว และกลุ่มเพื่อน</li>
+        <li>• มุมบาร์เล็ก ๆ สำหรับสายดื่ม เบียร์ เหล้า ไวน์</li>
+        <li>• มุมถ่ายรูปที่สะท้อนเอกลักษณ์เชียงราย</li>
+        <li>• ที่จอดรถกว้าง เดินเข้าออกสะดวก</li>
+      </ul>
+    </div>
+
+    <div class="space-y-3">
+      <div class="rounded-2xl overflow-hidden bg-white border border-purple-100 shadow">
+        <div class="aspect-[4/3] bg-[url('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg')] bg-cover bg-center"></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3 text-[11px] text-slate-700">
+        <div class="rounded-xl overflow-hidden bg-white border border-purple-100 shadow-sm">
+          <div class="aspect-[4/3] bg-[url('https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg')] bg-cover bg-center"></div>
+          <div class="p-2">โซนอินดอร์ แอร์เย็น นั่งสบาย</div>
+        </div>
+        <div class="rounded-xl overflow-hidden bg-white border border-green-100 shadow-sm">
+          <div class="aspect-[4/3] bg-[url('https://images.pexels.com/photos/5695869/pexels-photo-5695869.jpeg')] bg-cover bg-center"></div>
+          <div class="p-2">โซนเอาต์ดอร์ ลมเย็น เหมาะสำหรับนั่งชิลล์</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE DISHES -->
+<section id="signature" class="py-16 bg-white/80 border-y border-purple-100">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold text-purple-800">
+          Signature Dishes
+        </h2>
+        <p class="text-sm md:text-base text-slate-700">
+          เมนูที่สะท้อนตัวตนของร้าน ทั้งอาหารเหนือดั้งเดิมและเมนูปลาจากประมงพื้นบ้าน
+        </p>
+      </div>
+      <p class="text-xs text-slate-500">
+        * เปลี่ยนชื่อเมนู ราคา และรูปภาพให้ตรงกับเมนูจริงของร้านได้
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Card 1 -->
+      <article class="rounded-2xl bg-white border border-purple-100 overflow-hidden shadow-sm flex flex-col">
+        <div class="h-40 bg-[url('https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg')] bg-cover bg-center"></div>
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-semibold text-slate-900">ข้าวซอยเนื้อน่องลาย</h3>
+          <p class="text-xs text-slate-700 mt-1 flex-1">
+            ข้าวซอยน้ำแกงเข้มข้น เสิร์ฟกับเนื้อน่องลายตุ๋นเปื่อย หอมเครื่องแกงเหนือแบบดั้งเดิม
+          </p>
+          <div class="mt-3 flex items-center justify-between text-xs">
+            <span class="px-3 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-100">Northern Classic</span>
+            <span class="text-emerald-700 font-semibold">149.-</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="rounded-2xl bg-white border border-green-100 overflow-hidden shadow-sm flex flex-col">
+        <div class="h-40 bg-[url('https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg')] bg-cover bg-center"></div>
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-semibold text-slate-900">ปลาย่างสมุนไพรแม่น้ำกก</h3>
+          <p class="text-xs text-slate-700 mt-1 flex-1">
+            ปลาแม่น้ำย่างไฟอ่อนกับสมุนไพรและเกลือทะเล เสิร์ฟพร้อมน้ำจิ้มแจ่วและซีฟู้ด
+          </p>
+          <div class="mt-3 flex items-center justify-between text-xs">
+            <span class="px-3 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">Local Fish</span>
+            <span class="text-emerald-700 font-semibold">199.-</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="rounded-2xl bg-white border border-slate-100 overflow-hidden shadow-sm flex flex-col">
+        <div class="h-40 bg-[url('https://images.pexels.com/photos/4109990/pexels-photo-4109990.jpeg')] bg-cover bg-center"></div>
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-semibold text-slate-900">ชุดออเดิร์ฟเชียงราย + คราฟต์เบียร์</h3>
+          <p class="text-xs text-slate-700 mt-1 flex-1">
+            รวมไส้อั่ว แคบหมู น้ำพริกหนุ่ม ผักลวกและของทอด ทานคู่กับคราฟต์เบียร์เย็น ๆ
+          </p>
+          <div class="mt-3 flex items-center justify-between text-xs">
+            <span class="px-3 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-100">Sharing Plate</span>
+            <span class="text-emerald-700 font-semibold">259.-</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGIN / LOCAL INGREDIENTS -->
+<section id="origin" class="py-16">
+  <div class="mx-auto max-w-6xl px-4 grid gap-8 md:grid-cols-[1fr,1.2fr]">
+    <div class="rounded-3xl overflow-hidden bg-white border border-emerald-100 shadow">
+      <div class="aspect-[4/3] bg-[url('https://images.pexels.com/photos/3296273/pexels-photo-3296273.jpeg')] bg-cover bg-center"></div>
+    </div>
+    <div>
+      <h2 class="text-2xl md:text-3xl font-bold text-emerald-800 mb-4">
+        วัตถุดิบจากประมงพื้นบ้าน & เกษตรกรเชียงราย
+      </h2>
+      <p class="text-sm md:text-base text-slate-700 mb-3">
+        ทุกจานเริ่มจากวัตถุดิบที่ดี เราเลือกใช้ปลาสดจากประมงพื้นบ้านรอบเชียงราย
+        ผักปลอดสารจากเกษตรกรในพื้นที่ และส่วนผสมที่คัดสรรอย่างพิถีพิถัน
+      </p>
+      <p class="text-sm md:text-base text-slate-700 mb-4">
+        นอกจากรสชาติ เรายังให้ความสำคัญกับความปลอดภัยของอาหาร
+        และการสนับสนุนผู้คนในชุมชน ให้รายได้จากโต๊ะอาหารของคุณส่งต่อไปถึงคนต้นทางด้วย
+      </p>
+      <ul class="space-y-2 text-sm text-slate-800">
+        <li>• ปลาและอาหารทะเลจากชาวประมงพื้นบ้าน</li>
+        <li>• ผักและสมุนไพรปลอดสารจากสวนในเชียงราย</li>
+        <li>• เลือกซัพพลายเออร์ที่คำนึงถึงสิ่งแวดล้อม</li>
+        <li>• ตั้งราคายุติธรรม เข้าถึงได้ทุกกลุ่ม</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section id="contact" class="py-16 bg-white/80 border-t border-purple-100">
+  <div class="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-[1.3fr,1fr] items-center">
+    <div>
+      <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-3">
+        จองโต๊ะ • สอบถามเมนู • จัดเลี้ยง
+      </h2>
+      <p class="text-sm md:text-base text-slate-700 mb-4">
+        ไม่ว่าจะเป็นมื้อพิเศษสำหรับสองคน มื้อครอบครัว หรืองานเลี้ยงกลุ่มเล็ก ๆ
+        สามารถติดต่อเราได้ทางโทรศัพท์ Line หรือมาที่ร้านโดยตรง
+      </p>
+      <div class="space-y-2 text-sm">
+        <p>📞 โทร: <a href="tel:0812345678" class="text-emerald-700 font-semibold">081-234-5678</a></p>
+        <p>💬 Line: <span class="font-semibold text-purple-700">@yourrestaurant</span></p>
+        <p>📍 ที่อยู่: ใส่ที่อยู่ร้านจริง เช่น ถนน / ตำบล / อำเภอ / จังหวัดเชียงราย</p>
+        <p>⏰ เวลาเปิด-ปิด: ทุกวัน 10:00–23:00 น.</p>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="tel:0812345678"
+          class="inline-flex items-center gap-1 rounded-full bg-emerald-500 px-6 py-2 text-sm font-semibold text-white shadow hover:bg-emerald-400">
+          โทรจองโต๊ะตอนนี้
+        </a>
+        <a href="#hero"
+          class="inline-flex items-center gap-1 rounded-full border border-purple-200 bg-white px-6 py-2 text-sm font-semibold text-purple-700 hover:bg-purple-50">
+          กลับไปด้านบน
+        </a>
+      </div>
+    </div>
+
+    <!-- กล่องแผนที่ -->
+    <div class="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow">
+      <!-- ถ้ามี Google Maps ให้เอา iframe มาแทน -->
+      <div class="aspect-[4/3] bg-[url('https://images.pexels.com/photos/373883/pexels-photo-373883.jpeg')] bg-cover bg-center relative">
+        <div class="absolute inset-0 bg-black/35 flex flex-col items-center justify-center text-xs text-slate-50 px-4 text-center">
+          <p class="font-semibold mb-1">พื้นที่สำหรับแผนที่ร้าน</p>
+          <p>คัดลอกโค้ด Embed จาก Google Maps มาวางแทนส่วนนี้เมื่อพร้อมใช้งานจริง</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-slate-200 bg-[#FFFEFA]/90 py-4">
+  <div class="mx-auto max-w-6xl px-4 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+    <p>© <span id="year"></span> ชื่อร้านอาหารของคุณ — Chiang Rai Dining Landmark</p>
+    <p>ออกแบบและพัฒนาเว็บไซต์โดยเจ้าของร้าน / ทีมงานของคุณ</p>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    th: {
+      nav_brand: "ชื่อร้านอาหารของคุณ",
+      nav_home: "หน้าแรก",
+      nav_menu: "เมนูซิกเนเจอร์",
+      nav_about: "เกี่ยวกับร้าน",
+      nav_reviews: "รีวิว",
+      nav_contact: "ติดต่อเรา",
+      nav_call: "โทรจองโต๊ะ",
+    },
+    en: {
+      nav_brand: "Your Restaurant Name",
+      nav_home: "Home",
+      nav_menu: "Signature Menu",
+      nav_about: "About",
+      nav_reviews: "Reviews",
+      nav_contact: "Contact",
+      nav_call: "Reserve Table",
+    }
+  };
+
+  function setLanguage(lang) {
+    const elements = document.querySelectorAll("[data-i18n]");
+    elements.forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+    localStorage.setItem("siteLanguage", lang);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("siteLanguage") || "th";
+    setLanguage(saved);
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ----- HERO SLIDER -----
+    const slides = document.querySelectorAll("[data-slide]");
+    const dots = document.querySelectorAll("[data-dot]");
+    let current = 0;
+
+    function updateSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove("hidden");
+          slide.classList.remove("opacity-0");
+        } else {
+          slide.classList.add("opacity-0");
+          slide.classList.add("hidden");
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove("bg-slate-300");
+          dot.classList.add("bg-slate-900");
+        } else {
+          dot.classList.add("bg-slate-300");
+          dot.classList.remove("bg-slate-900");
+        }
+      });
+
+      current = index;
+    }
+
+    function nextSlide() {
+      const next = (current + 1) % slides.length;
+      updateSlide(next);
+    }
+
+    function prevSlide() {
+      const prev = (current - 1 + slides.length) % slides.length;
+      updateSlide(prev);
+    }
+
+    // ให้ปุ่มใน HTML เรียกใช้ได้
+    window.heroNextSlide = nextSlide;
+    window.heroPrevSlide = prevSlide;
+    window.heroGoToSlide = updateSlide;
+
+    // แสดงสไลด์แรก
+    updateSlide(0);
+
+    // Auto play
+    setInterval(nextSlide, 8000);
+  });
+</script>
+
+</body>
+</html>
