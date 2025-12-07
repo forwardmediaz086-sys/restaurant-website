@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>บ้านเมืองเหนือ Mueang Nuea | Chiang Rai Dining Experience</title>
+
+  <!-- Swiper -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ฟอนต์ไทย -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: #020617; /* slate-950 */
+      color: #E5E7EB;            /* slate-200 */
+      overflow-x: hidden;
+    }
+    html { scroll-behavior: smooth; }
+
+    /* พื้นหลังไล่สี ม่วง / เขียว */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(88, 28, 135, 0.55), transparent 55%),
+        radial-gradient(circle at 85% 85%, rgba(22, 163, 74, 0.45), transparent 55%);
+    }
+  </style>
+</head>
+<body class="text-slate-100">
+
+<!-- NAVBAR -->
+<header class="fixed inset-x-0 top-0 z-40 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <!-- โลโก้ + แบรนด์ -->
+    <div class="flex items-center gap-2">
+      <img
+        src="logo.jpg"
+        alt="Restaurant Logo"
+        class="h-9 w-9 rounded-full object-cover shadow"
+      >
+      <span class="font-semibold text-lg text-slate-50" data-i18n="nav_brand">
+        บ้านเมืองเหนือ
+      </span>
+    </div>
+
+    <!-- เมนูหลัก -->
+    <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-200">
+      <li>
+        <a href="#hero" class="hover:text-purple-300" data-i18n="nav_home">
+          หน้าแรก
+        </a>
+      </li>
+      <li>
+        <a href="#experience" class="hover:text-purple-300" data-i18n="nav_about">
+          เกี่ยวกับร้าน
+        </a>
+      </li>
+      <li>
+        <a href="#signature" class="hover:text-purple-300" data-i18n="nav_menu">
+          เมนูซิกเนเจอร์
+        </a>
+      </li>
+      <li>
+        <a href="#origin" class="hover:text-purple-300" data-i18n="nav_origin">
+          วัตถุดิบท้องถิ่น
+        </a>
+      </li>
+      <li>
+        <a href="#contact" class="hover:text-purple-300" data-i18n="nav_contact">
+          ติดต่อเรา
+        </a>
+      </li>
+    </ul>
+
+    <!-- ปุ่มภาษา + ปุ่มโทร -->
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1">
+        <button
+          onclick="setLanguage('th')"
+          data-lang-btn="th"
+          class="text-xs font-semibold px-2 py-1 rounded-full border border-purple-500/70 bg-purple-900/60 text-purple-100 hover:bg-purple-900/80">
+          TH
+        </button>
+        <button
+          onclick="setLanguage('en')"
+          data-lang-btn="en"
+          class="text-xs font-semibold px-2 py-1 rounded-full border border-purple-500/70 bg-slate-900 text-purple-100 hover:bg-purple-900/40">
+          EN
+        </button>
+        <button
+          onclick="setLanguage('zh')"
+          data-lang-btn="zh"
+          class="text-xs font-semibold px-2 py-1 rounded-full border border-purple-500/70 bg-slate-900 text-purple-100 hover:bg-purple-900/40">
+          中文
+        </button>
+      </div>
+
+      <a href="tel:0654959559"
+        class="hidden md:inline-block rounded-full border border-emerald-400/90 px-4 py-1.5 text-sm font-semibold text-emerald-200 bg-slate-900 hover:bg-emerald-500/20 shadow"
+        data-i18n="nav_call">
+        โทรจองโต๊ะ
+      </a>
+    </div>
+  </nav>
+</header>
+
+
+<!-- HERO SLIDER -->
+<section id="hero" class="relative min-h-screen pt-16">
+  <div class="relative w-full h-[calc(100vh-4rem)] overflow-hidden">
+
+    <!-- สไลด์ 1: บรรยากาศในร้าน -->
+    <div class="absolute inset-0 transition-opacity duration-700 ease-out" data-slide="0">
+      <div class="w-full h-full bg-[url('H1.jpg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+        <p class="text-xs md:text-sm tracking-[0.25em] uppercase text-purple-200 mb-2" data-i18n="hero1_badge">
+          Chiang Rai • Indoor Dining
+        </p>
+        <h1 class="text-3xl md:text-5xl font-bold text-slate-50 mb-3" data-i18n="hero1_title">
+          PRIVATE DINING
+        </h1>
+        <p class="text-sm md:text-base text-slate-200 mb-6 max-w-2xl" data-i18n="hero1_text">
+          ห้องอาหารบรรยากาศอบอุ่น เหมาะสำหรับมื้อพิเศษกับครอบครัวและกลุ่มเพื่อน
+          พร้อมเมนูอาหารเหนือและไวน์ให้เลือกจับคู่
+        </p>
+        <a href="#contact"
+           class="rounded-full bg-slate-100/90 px-6 py-2.5 text-sm md:text-base font-semibold text-slate-900 hover:bg-white shadow"
+           data-i18n="hero1_cta">
+          จองโต๊ะ / สอบถามเพิ่มเติม
+        </a>
+      </div>
+    </div>
+
+    <!-- สไลด์ 2: โซนเอาต์ดอร์ -->
+    <div class="absolute inset-0 opacity-0 hidden transition-opacity duration-700 ease-out" data-slide="1">
+      <div class="w-full h-full bg-[url('H2.jpg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-black/55"></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+        <p class="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-200 mb-2" data-i18n="hero2_badge">
+          Outdoor • Chill & Drink
+        </p>
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-50 mb-3" data-i18n="hero2_title">
+          GARDEN TERRACE
+        </h2>
+        <p class="text-sm md:text-base text-slate-200 mb-6 max-w-2xl" data-i18n="hero2_text">
+          โซนเอาต์ดอร์รับลมชมวิวเมืองเชียงราย เหมาะสำหรับนั่งชิลล์ จิบเบียร์
+          และแบ่งปันชุดออเดิร์ฟเหนือกับเพื่อน ๆ
+        </p>
+        <a href="#signature"
+           class="rounded-full bg-purple-500 px-6 py-2.5 text-sm md:text-base font-semibold text-white hover:bg-purple-400 shadow"
+           data-i18n="hero2_cta">
+          ดูเมนูออเดิร์ฟและเครื่องดื่ม
+        </a>
+      </div>
+    </div>
+
+    <!-- สไลด์ 3: วัตถุดิบประมงพื้นบ้าน -->
+    <div class="absolute inset-0 opacity-0 hidden transition-opacity duration-700 ease-out" data-slide="2">
+      <div class="w-full h-full bg-[url('H3.jpg')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-black/55"></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+        <p class="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-200 mb-5" data-i18n="hero3_badge">
+          Local Sourcing
+        </p>
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-50 mb-3" data-i18n="hero3_title">
+          จากประมงพื้นบ้านสู่จานอาหาร
+        </h2>
+        <p class="text-sm md:text-base text-slate-200 mb-6 max-w-2xl" data-i18n="hero3_text">
+          คัดสรรปลาสดจากประมงพื้นบ้านและผักจากเกษตรกรเชียงราย
+          เพื่อให้ทุกจานที่เสิร์ฟทั้งอร่อยและปลอดภัย ในราคาที่เข้าถึงได้
+        </p>
+        <a href="#origin"
+           class="rounded-full bg-slate-100/90 px-6 py-2.5 text-sm md:text-base font-semibold text-slate-900 hover:bg-white shadow"
+           data-i18n="hero3_cta">
+          รู้จักที่มาของวัตถุดิบเรา
+        </a>
+      </div>
+    </div>
+
+    <!-- ปุ่มลูกศรซ้ายขวา -->
+    <button type="button"
+      onclick="heroPrevSlide()"
+      class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/40 hover:bg-black/60 text-slate-100 w-9 h-9 flex items-center justify-center text-lg">
+      ‹
+    </button>
+    <button type="button"
+      onclick="heroNextSlide()"
+      class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/40 hover:bg-black/60 text-slate-100 w-9 h-9 flex items-center justify-center text-lg">
+      ›
+    </button>
+
+    <!-- จุดบอกสไลด์ -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+      <button type="button" data-dot="0"
+        onclick="heroGoToSlide(0)"
+        class="h-2.5 w-2.5 rounded-full bg-slate-500 border border-white/60"></button>
+      <button type="button" data-dot="1"
+        onclick="heroGoToSlide(1)"
+        class="h-2.5 w-2.5 rounded-full bg-slate-500 border border-white/60"></button>
+      <button type="button" data-dot="2"
+        onclick="heroGoToSlide(2)"
+        class="h-2.5 w-2.5 rounded-full bg-slate-500 border border-white/60"></button>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience" class="py-16">
+  <div class="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-[1.3fr,1fr]">
+    <div>
+      <h2 class="text-2xl md:text-3xl font-bold text-purple-100 mb-4" data-i18n="exp_title">
+        Chiang Rai Dining Experience
+      </h2>
+      <p class="text-sm md:text-base text-slate-300 mb-3" data-i18n="exp_p1">
+        เราอยากให้ทุกมื้อที่บ้านเมืองเหนือเป็นมากกว่าการทานข้าว และเป็นช่วงเวลาที่ได้พักผ่อน
+        พูดคุย ใช้เวลากับคนรัก ครอบครัว ท่ามกลางบรรยากาศกลิ่นอายของเมืองเชียงราย
+      </p>
+      <p class="text-sm md:text-base text-slate-300 mb-4" data-i18n="exp_p2">
+        เลือกได้ทั้งโซนห้องแอร์เย็น ๆ นั่งสบาย ๆ หรือดื่มด่ำบรรยากาศโซนเอาต์ดอร์รับลมชมวิว
+        พร้อมเสียงเพลงเบา ๆ ประดับด้วยแสงไฟที่ทำให้ทุกโต๊ะ เป็นลูกค้าคนพิเศษของเรา
+      </p>
+      <ul class="space-y-2 text-sm text-slate-200">
+        <li data-i18n="exp_li1">• รองรับทั้งคู่รัก ครอบครัว และกลุ่มเพื่อน</li>
+        <li data-i18n="exp_li2">• มุมสายชิล มีทั้ง เบเกอรี่ ชา กาแฟ ไอศกรีม</li>
+        <li data-i18n="exp_li3">• มุมสำหรับสายดื่ม เบียร์ เหล้า ไวน์</li>
+        <li data-i18n="exp_li4">• มุมถ่ายรูปที่สะท้อนเอกลักษณ์เชียงราย</li>
+        <li data-i18n="exp_li5">• ที่จอดรถกว้างขวางสะดวกสบาย</li>
+      </ul>
+    </div>
+
+    <div class="space-y-3">
+      <div class="rounded-2xl overflow-hidden bg-slate-900 border border-slate-700 shadow">
+        <div class="aspect-[4/3] bg-[url('S1.jpg')] bg-cover bg-center"></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3 text-[11px] text-slate-300">
+        <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-700">
+          <div class="aspect-[4/3] bg-[url('in1.jpg')] bg-cover bg-center"></div>
+          <div class="p-2" data-i18n="exp_indoor_caption">โซนอินดอร์ แอร์เย็น นั่งสบาย</div>
+        </div>
+        <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-700">
+          <div class="aspect-[4/3] bg-[url('out1.jpg')] bg-cover bg-center"></div>
+          <div class="p-2" data-i18n="exp_outdoor_caption">โซนเอาต์ดอร์ ลมเย็น เหมาะสำหรับนั่งชิลล์</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE DISHES -->
+<section id="signature" class="py-16 bg-slate-950/60 border-y border-slate-800">
+  <div class="mx-auto max-w-6xl px-4">
+    
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold text-purple-100" data-i18n="sig_title">
+          Signature Dishes
+        </h2>
+        <p class="text-sm md:text-base text-slate-300" data-i18n="sig_desc">
+          เมนูที่สะท้อนตัวตนของร้าน ทั้งอาหารเหนือดั้งเดิมและเมนูปลาจากประมงพื้นบ้าน
+        </p>
+      </div>
+      <p class="text-xs text-slate-400" data-i18n="sig_note">
+        * เปลี่ยนชื่อเมนู ราคา และรูปภาพได้ตามจริง
+      </p>
+    </div>
+
+    <!-- Swiper Container -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Card 1 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-purple-500/40 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m1.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish1_name">ข้าวซอยไก่</h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish1_desc">
+                เนื้อย่างหอมกลิ่นถ่าน นุ่มฉ่ำ เสิร์ฟคู่กับน้ำจิ้มแจ่วเหนือ
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/50 text-purple-100" data-i18n="label_northern">
+                  Northern
+                </span>
+                <span class="text-emerald-300 font-semibold">149.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-emerald-500/40 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m2.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish2_name">ปลาย่างสมุนไพรแม่น้ำกก</h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish2_desc">
+                ปลาแม่น้ำย่างสมุนไพร หอมกลิ่นใบตะไคร้และมะกรูด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-emerald-900/40 text-emerald-100" data-i18n="label_localfish">
+                  Local Fish
+                </span>
+                <span class="text-emerald-300 font-semibold">199.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m3.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish3_name">
+                ชุดออเดิร์ฟเชียงราย + คราฟต์เบียร์
+              </h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish3_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m4.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish4_name">
+                ชุดออเดิร์ฟเชียงราย + คราฟต์เบียร์
+              </h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish4_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m5.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish5_name">
+                ชุดออเดิร์ฟเชียงราย + คราฟต์เบียร์
+              </h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish5_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m6.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish6_name">หมึกผัดไข่เค็ม</h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish6_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m7.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish7_name">ปูผัดผงกะหรี่</h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish7_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m8.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish8_name">ออเดิร์ฟเมืองเหนือ</h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish8_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m9.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish9_name">น้ำพริกหนุ่ม</h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish9_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m10.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish10_name">หอยเชลผัดฉ่า</h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish10_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 11 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m11.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish11_name">ต้มยำกุ้ง</h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish11_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 12 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m12.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish12_name">หมูกรอบ</h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish12_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 13 -->
+        <div class="swiper-slide">
+          <article class="rounded-2xl bg-slate-900/80 border border-slate-700 overflow-hidden shadow-lg flex flex-col">
+            <div class="h-40 bg-[url('m13.jpg')] bg-cover bg-center"></div>
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-slate-50" data-i18n="dish13_name">ตำส้มโอ</h3>
+              <p class="text-xs text-slate-300 mt-1 flex-1" data-i18n="dish13_desc">
+                ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด
+              </p>
+              <div class="mt-3 flex items-center justify-between text-xs">
+                <span class="px-3 py-0.5 rounded-full bg-purple-900/40 text-purple-100" data-i18n="label_sharing">
+                  Sharing
+                </span>
+                <span class="text-emerald-300 font-semibold">259.-</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ORIGIN / LOCAL INGREDIENTS -->
+<section id="origin" class="py-16">
+  <div class="mx-auto max-w-6xl px-4 grid gap-8 md:grid-cols-[1fr,1.2fr]">
+    <div class="rounded-3xl overflow-hidden bg-slate-900 border border-emerald-500/40 shadow-lg">
+      <div class="aspect-[4/3] bg-[url('v1.jpg')] bg-cover bg-center"></div>
+    </div>
+    <div>
+      <h2 class="text-2xl md:text-3xl font-bold text-emerald-200 mb-4" data-i18n="origin_title">
+        วัตถุดิบจากประมงพื้นบ้าน & เกษตรกรเชียงราย
+      </h2>
+      <p class="text-sm md:text-base text-slate-300 mb-3" data-i18n="origin_p">
+        ทุกเมนูเราคัดสรรอย่างพิถีพิถัน เลือกใช้วัตถุดิบจากประมงพื้นบ้าน 
+        สดๆจากทะเล ผักปลอดสาร อาหารทุกจานปลอดภัย
+      </p>
+      <ul class="space-y-2 text-sm text-slate-200">
+        <li data-i18n="origin_li1">• อาหารทะเลจากชาวประมงพื้นบ้านโดยตรง</li>
+        <li data-i18n="origin_li2">• ผักปลอดสารจากเกษตรกรชาวสวนในเชียงราย</li>
+        <li data-i18n="origin_li3">• ราคาเข้าถึงได้</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section id="contact" class="py-16 bg-slate-950/80 border-t border-slate-800">
+  <div class="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-[1.3fr,1fr] items-center">
+    <div>
+      <h2 class="text-2xl md:text-3xl font-bold text-purple-100 mb-3" data-i18n="contact_title">
+        จองโต๊ะ • สอบถามเมนู • จัดเลี้ยง
+      </h2>
+      <p class="text-sm md:text-base text-slate-300 mb-4" data-i18n="contact_p1">
+        อาหารทะเลสด / ข้าวซอยสูตรเข้มข้น / อาหารไทย-พื้นเมือง / เมนูอีกหลากหลายให้ลอง
+        มาเปิดประสบการณ์ความอร่อยแบบ “เมืองเหนือ” ด้วยกัน !
+      </p>
+      <p class="text-sm md:text-base text-slate-300 mb-4" data-i18n="contact_p2">
+        ไม่ว่าจะเป็นมื้อพิเศษสำหรับสองคน มื้อครอบครัว หรืองานเลี้ยงกลุ่มเล็ก ๆ
+        สามารถติดต่อเราได้ทางโทรศัพท์ Line หรือมาที่ร้านโดยตรง
+      </p>
+      <div class="space-y-2 text-sm">
+        <p>
+          📞 <span data-i18n="contact_phone_label">โทร:</span>
+          <a href="tel:0644959559" class="text-emerald-300 font-semibold">065-495-9559</a>
+        </p>
+        <p>
+          💬 <span data-i18n="contact_line_label">Line:</span>
+          <span class="font-semibold text-purple-200">@yourrestaurant</span>
+        </p>
+        <p data-i18n="contact_address">
+          📍 ที่อยู่: ใส่ที่อยู่ร้านจริง เช่น ถนน / ตำบล / อำเภอ / จังหวัดเชียงราย
+        </p>
+        <p data-i18n="contact_time">
+          ⏰ เวลาเปิด-ปิด: ทุกวัน 11:00–23:00 น.
+        </p>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="tel:0644959559"
+          class="inline-flex items-center gap-1 rounded-full bg-emerald-500 px-6 py-2 text-sm font-semibold text-slate-950 shadow hover:bg-emerald-400"
+          data-i18n="contact_cta_call">
+          โทรจองโต๊ะตอนนี้
+        </a>
+        <a href="#hero"
+          class="inline-flex items-center gap-1 rounded-full border border-purple-500/70 bg-slate-900 px-6 py-2 text-sm font-semibold text-purple-100 hover:bg-purple-900/40"
+          data-i18n="contact_cta_top">
+          กลับไปด้านบน
+        </a>
+      </div>
+    </div>
+
+    <!-- กล่องแผนที่ -->
+    <div class="rounded-3xl overflow-hidden border border-slate-700 bg-slate-900 shadow-md">
+      <div class="aspect-[4/3] w-full h-full">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.480024467555!2d99.83611499999999!3d19.904166699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30d707159c90ea37%3A0xb0ed03b98e56a412!2z4LmA4Lih4Li34Lit4LiH4LmA4Lir4LiZ4Li34Lit!5e0!3m2!1sth!2sth!4v1764786149644!5m2!1sth!2sth"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-slate-800 bg-slate-950 py-4">
+  <div class="mx-auto max-w-6xl px-4 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-slate-400">
+    <p>
+      © <span id="year"></span>
+      <span data-i18n="footer_brand">บ้านเมืองเหนือ — Mueang Nuea</span>
+    </p>
+    <p data-i18n="footer_credit">
+      ออกแบบและพัฒนาเว็บไซต์โดยเจ้าของร้าน / ทีมงานของคุณ
+    </p>
+  </div>
+</footer>
+
+<!-- Swiper INIT -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    breakpoints: {
+      640: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+<!-- TRANSLATION + HERO SLIDER SCRIPT -->
+<script>
+  const translations = {
+    th: {
+      nav_brand: "บ้านเมืองเหนือ",
+      nav_home: "หน้าแรก",
+      nav_menu: "เมนูซิกเนเจอร์",
+      nav_about: "เกี่ยวกับร้าน",
+      nav_origin: "วัตถุดิบท้องถิ่น",
+      nav_contact: "ติดต่อเรา",
+      nav_call: "โทรจองโต๊ะ",
+
+      hero1_badge: "เชียงราย • ห้องอาหารส่วนตัว",
+      hero1_title: "PRIVATE DINING",
+      hero1_text: "ห้องอาหารบรรยากาศอบอุ่น เหมาะสำหรับมื้อพิเศษกับครอบครัวและกลุ่มเพื่อน พร้อมเมนูอาหารเหนือและไวน์ให้เลือกจับคู่",
+      hero1_cta: "จองโต๊ะ / สอบถามเพิ่มเติม",
+
+      hero2_badge: "โซนเอาต์ดอร์ • ชิลล์และดริงก์",
+      hero2_title: "GARDEN TERRACE",
+      hero2_text: "โซนเอาต์ดอร์รับลมชมวิวเมืองเชียงราย เหมาะสำหรับนั่งชิลล์ จิบเบียร์ และแบ่งปันชุดออเดิร์ฟเหนือกับเพื่อน ๆ",
+      hero2_cta: "ดูเมนูออเดิร์ฟและเครื่องดื่ม",
+
+      hero3_badge: "วัตถุดิบท้องถิ่น",
+      hero3_title: "จากประมงพื้นบ้านสู่จานอาหาร",
+      hero3_text: "คัดสรรปลาสดจากประมงพื้นบ้านและผักจากเกษตรกรเชียงราย เพื่อให้ทุกจานที่เสิร์ฟทั้งอร่อยและปลอดภัย ในราคาที่เข้าถึงได้",
+      hero3_cta: "รู้จักที่มาของวัตถุดิบเรา",
+
+      exp_title: "Chiang Rai Dining Experience",
+      exp_p1: "เราอยากให้ทุกมื้อที่บ้านเมืองเหนือเป็นมากกว่าการทานข้าว และเป็นช่วงเวลาที่ได้พักผ่อน พูดคุย ใช้เวลากับคนรัก ครอบครัว ท่ามกลางบรรยากาศกลิ่นอายของเมืองเชียงราย",
+      exp_p2: "เลือกได้ทั้งโซนห้องแอร์เย็น ๆ นั่งสบาย ๆ หรือดื่มด่ำบรรยากาศโซนเอาต์ดอร์รับลมชมวิว พร้อมเสียงเพลงเบา ๆ ประดับด้วยแสงไฟที่ทำให้ทุกโต๊ะ เป็นลูกค้าคนพิเศษของเรา",
+      exp_li1: "• รองรับทั้งคู่รัก ครอบครัว และกลุ่มเพื่อน",
+      exp_li2: "• มุมสายชิล มีทั้ง เบเกอรี่ ชา กาแฟ ไอศกรีม",
+      exp_li3: "• มุมสำหรับสายดื่ม เบียร์ เหล้า ไวน์",
+      exp_li4: "• มุมถ่ายรูปที่สะท้อนเอกลักษณ์เชียงราย",
+      exp_li5: "• ที่จอดรถกว้างขวางสะดวกสบาย",
+      exp_indoor_caption: "โซนอินดอร์ แอร์เย็น นั่งสบาย",
+      exp_outdoor_caption: "โซนเอาต์ดอร์ ลมเย็น เหมาะสำหรับนั่งชิลล์",
+
+      sig_title: "Signature Dishes",
+      sig_desc: "เมนูที่สะท้อนตัวตนของร้าน ทั้งอาหารเหนือดั้งเดิมและเมนูปลาจากประมงพื้นบ้าน",
+      sig_note: "* เปลี่ยนชื่อเมนู ราคา และรูปภาพได้ตามจริง",
+
+      label_northern: "อาหารเหนือ",
+      label_localfish: "ปลาท้องถิ่น",
+      label_sharing: "แชร์กัน",
+
+      dish1_name: "ข้าวซอยไก่",
+      dish1_desc: "ข้าวซอยน้ำแกงเข้มข้น เสิร์ฟพร้อมน่องไก่และเครื่องเคียงครบ",
+      dish2_name: "ปลาย่างสมุนไพรแม่น้ำกก",
+      dish2_desc: "ปลาแม่น้ำย่างสมุนไพร หอมกลิ่นตะไคร้และมะกรูด",
+      dish3_name: "ชุดออเดิร์ฟเชียงราย + คราฟต์เบียร์",
+      dish3_desc: "ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด",
+      dish4_name: "ชุดออเดิร์ฟเชียงราย + คราฟต์เบียร์",
+      dish4_desc: "ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด",
+      dish5_name: "ชุดออเดิร์ฟเชียงราย + คราฟต์เบียร์",
+      dish5_desc: "ไส้อั่ว แคบหมู น้ำพริก ผักลวก และของทอด",
+      dish6_name: "หมึกผัดไข่เค็ม",
+      dish6_desc: "หมึกผัดซอสไข่เค็มหอมมัน รสกลมกล่อมทานกับข้าวสวยร้อนๆ",
+      dish7_name: "ปูผัดผงกะหรี่",
+      dish7_desc: "ปูผัดผงกะหรี่ไข่เยิ้ม หอมมันรสจัดจ้าน",
+      dish8_name: "ออเดิร์ฟเมืองเหนือ",
+      dish8_desc: "ออเดิร์ฟเหนือชุดใหญ่ สำหรับแชร์ความอร่อยทั้งโต๊ะ",
+      dish9_name: "น้ำพริกหนุ่ม",
+      dish9_desc: "น้ำพริกหนุ่มสูตรโบราณ เสิร์ฟคู่ผักลวกและแคบหมู",
+      dish10_name: "หอยเชลผัดฉ่า",
+      dish10_desc: "หอยเชลตัวโตผัดฉ่ารสจัด เผ็ดร้อนหอมสมุนไพร",
+      dish11_name: "ต้มยำกุ้ง",
+      dish11_desc: "ต้มยำกุ้งน้ำข้นรสแซ่บ หอมสมุนไพรไทย",
+      dish12_name: "หมูกรอบ",
+      dish12_desc: "หมูกรอบหนังฟูกรอบ เนื้อนุ่ม เสิร์ฟคู่กับน้ำจิ้มซีอิ๊วดำ",
+      dish13_name: "ตำส้มโอ",
+      dish13_desc: "ส้มโอคลุกเครื่องแบบยำ เปรี้ยวหวานเค็มเผ็ดกำลังดี",
+
+      origin_title: "วัตถุดิบจากประมงพื้นบ้าน & เกษตรกรเชียงราย",
+      origin_p: "ทุกเมนูเราคัดสรรอย่างพิถีพิถัน เลือกใช้วัตถุดิบจากประมงพื้นบ้าน ผักปลอดสาร และวัตถุดิบจากชุมชนในเชียงราย เพื่อให้ทุกจานทั้งอร่อยและปลอดภัย",
+      origin_li1: "• อาหารทะเลจากชาวประมงพื้นบ้านโดยตรง",
+      origin_li2: "• ผักปลอดสารจากเกษตรกรชาวสวนในเชียงราย",
+      origin_li3: "• ราคาเข้าถึงได้ เป็นมิตรกับทุกกลุ่มลูกค้า",
+
+      contact_title: "จองโต๊ะ • สอบถามเมนู • จัดเลี้ยง",
+      contact_p1: "อาหารทะเลสด / ข้าวซอยสูตรเข้มข้น / อาหารไทย-พื้นเมือง / เมนูอีกหลากหลายให้ลอง มาเปิดประสบการณ์ความอร่อยแบบ “เมืองเหนือ” ด้วยกัน !",
+      contact_p2: "ไม่ว่าจะเป็นมื้อพิเศษสำหรับสองคน มื้อครอบครัว หรืองานเลี้ยงกลุ่มเล็ก ๆ สามารถติดต่อเราได้ทางโทรศัพท์ Line หรือมาที่ร้านโดยตรง",
+      contact_phone_label: "โทร:",
+      contact_line_label: "Line:",
+      contact_address: "📍 ที่อยู่: ใส่ที่อยู่ร้านจริง เช่น ถนน / ตำบล / อำเภอ / จังหวัดเชียงราย",
+      contact_time: "⏰ เวลาเปิด-ปิด: ทุกวัน 11:00–23:00 น.",
+      contact_cta_call: "โทรจองโต๊ะตอนนี้",
+      contact_cta_top: "กลับไปด้านบน",
+
+      footer_brand: "บ้านเมืองเหนือ — Mueang Nuea",
+      footer_credit: "ออกแบบและพัฒนาเว็บไซต์โดยเจ้าของร้าน / ทีมงานของคุณ"
+    },
+    en: {
+      nav_brand: "Mueang Nuea",
+      nav_home: "Home",
+      nav_menu: "Signature Menu",
+      nav_about: "About",
+      nav_origin: "Local Ingredients",
+      nav_contact: "Contact",
+      nav_call: "Reserve Table",
+
+      hero1_badge: "Chiang Rai • Indoor Dining",
+      hero1_title: "PRIVATE DINING",
+      hero1_text: "A warm and cozy dining room for special moments with family and friends, serving Northern Thai dishes paired with wine.",
+      hero1_cta: "Reserve / More Info",
+
+      hero2_badge: "Outdoor • Chill & Drink",
+      hero2_title: "GARDEN TERRACE",
+      hero2_text: "Outdoor terrace with Chiang Rai city views, perfect for chilling, craft beer, and sharing Northern appetizers.",
+      hero2_cta: "See Appetizers & Drinks",
+
+      hero3_badge: "Local Sourcing",
+      hero3_title: "From Local Fisheries to Your Plate",
+      hero3_text: "Fresh fish from local fisheries and vegetables from Chiang Rai farmers, ensuring every dish is delicious, safe, and fairly priced.",
+      hero3_cta: "Discover Our Ingredients",
+
+      exp_title: "Chiang Rai Dining Experience",
+      exp_p1: "At Mueang Nuea, every meal is more than just food – it is a time to relax, talk, and connect with your loved ones in the ambience of Chiang Rai.",
+      exp_p2: "Choose between a cool air-conditioned indoor room or an open-air terrace with a view, gentle music, and warm lighting that makes every table feel special.",
+      exp_li1: "• Perfect for couples, families, and small groups",
+      exp_li2: "• Chill corner with bakery, tea, coffee, and ice cream",
+      exp_li3: "• Drink corner with beer, spirits, and wine",
+      exp_li4: "• Photo spots that reflect Chiang Rai’s identity",
+      exp_li5: "• Spacious and convenient parking",
+      exp_indoor_caption: "Indoor zone with cool air-conditioning",
+      exp_outdoor_caption: "Outdoor zone with cool breeze – perfect for chilling",
+
+      sig_title: "Signature Dishes",
+      sig_desc: "Dishes that represent who we are – from classic Northern recipes to plates featuring local fish.",
+      sig_note: "* You can update dish names, prices, and photos to match your real menu.",
+
+      label_northern: "Northern",
+      label_localfish: "Local Fish",
+      label_sharing: "Sharing",
+
+      dish1_name: "Khao Soi Gai (Chicken Curry Noodles)",
+      dish1_desc: "Rich curry noodle soup with tender chicken and full condiments.",
+      dish2_name: "Herb-Grilled Fish from Kok River",
+      dish2_desc: "Local river fish grilled with Thai herbs, lemongrass, and kaffir lime leaves.",
+      dish3_name: "Chiang Rai Appetizer Set + Craft Beer",
+      dish3_desc: "Sai Ua sausage, pork crackling, chili dips, boiled vegetables, and fried snacks.",
+      dish4_name: "Chiang Rai Appetizer Set + Craft Beer",
+      dish4_desc: "Perfect for sharing with friends over drinks.",
+      dish5_name: "Chiang Rai Appetizer Set + Craft Beer",
+      dish5_desc: "A complete Northern snack platter to share.",
+      dish6_name: "Stir-Fried Squid with Salted Egg",
+      dish6_desc: "Squid stir-fried in creamy salted-egg sauce, best with hot rice.",
+      dish7_name: "Crab Curry with Egg",
+      dish7_desc: "Stir-fried crab in rich yellow curry with egg and aromatics.",
+      dish8_name: "Northern Appetizer Platter",
+      dish8_desc: "A sharing platter of Northern snacks for the whole table.",
+      dish9_name: "Nam Prik Noom (Green Chili Dip)",
+      dish9_desc: "Northern green chili dip served with vegetables and pork crackling.",
+      dish10_name: "Spicy Stir-Fried Scallops",
+      dish10_desc: "Plump scallops stir-fried with Thai herbs in a spicy ‘pad cha’ style.",
+      dish11_name: "Tom Yum Goong",
+      dish11_desc: "Spicy and sour prawn soup with Thai herbs.",
+      dish12_name: "Crispy Pork Belly",
+      dish12_desc: "Crispy pork belly with fluffy skin and tender meat, served with dipping sauce.",
+      dish13_name: "Pomelo Spicy Salad",
+      dish13_desc: "Pomelo tossed with Thai dressing – a balance of sour, sweet, salty, and spicy.",
+
+      origin_title: "Local Ingredients from Chiang Rai Fisheries & Farmers",
+      origin_p: "We carefully select ingredients from local fisheries and organic farms in Chiang Rai, so every dish is fresh, safe, and supports local communities.",
+      origin_li1: "• Seafood sourced directly from small-scale local fishers",
+      origin_li2: "• Pesticide-free vegetables from Chiang Rai farmers",
+      origin_li3: "• Fair and accessible pricing for everyone",
+
+      contact_title: "Reservation • Menu Inquiry • Private Events",
+      contact_p1: "Fresh seafood, rich Khao Soi, Thai & Northern dishes, and many more menus for you to explore. Come experience the taste of the North together.",
+      contact_p2: "Whether it’s a date night, family gathering, or a small private event, feel free to contact us via phone, Line, or visit us at the restaurant.",
+      contact_phone_label: "Tel:",
+      contact_line_label: "Line:",
+      contact_address: "📍 Address: Fill in your real address here – street, subdistrict, district, Chiang Rai province.",
+      contact_time: "⏰ Opening hours: Daily 11:00–23:00",
+      contact_cta_call: "Call to Reserve Now",
+      contact_cta_top: "Back to Top",
+
+      footer_brand: "Mueang Nuea — Chiang Rai Dining",
+      footer_credit: "Website designed and developed by the owner / your team"
+    },
+    zh: {
+      nav_brand: "清莱北方风味",
+      nav_home: "首页",
+      nav_menu: "招牌菜",
+      nav_about: "关于餐厅",
+      nav_origin: "本地食材",
+      nav_contact: "联系我们",
+      nav_call: "预订餐桌",
+
+      hero1_badge: "清莱 • 室内用餐",
+      hero1_title: "私密用餐空间",
+      hero1_text: "温馨舒适的用餐环境，适合家人、朋友及重要场合，提供北泰料理与葡萄酒搭配。",
+      hero1_cta: "预订餐桌 / 了解更多",
+
+      hero2_badge: "户外 • 小酌放松",
+      hero2_title: "花园露台",
+      hero2_text: "户外露台可欣赏清莱夜景，是小酌啤酒、分享北方拼盘的好去处。",
+      hero2_cta: "查看拼盘与酒水菜单",
+
+      hero3_badge: "本地食材",
+      hero3_title: "从传统渔民到你的餐桌",
+      hero3_text: "精选来自当地渔民的新鲜鱼类与清莱农民种植的蔬菜，每一道菜既美味又安心，价格亲民。",
+      hero3_cta: "了解我们的食材来源",
+
+      exp_title: "清莱用餐体验",
+      exp_p1: "在清莱北方风味，我们希望每一顿饭不只是填饱肚子，而是与你所爱的人一起放松、聊天、享受清莱氛围的时光。",
+      exp_p2: "可选择冷气开放式室内座位，或微风徐徐的户外花园露台，搭配轻柔音乐与灯光，每一桌都是贵宾。",
+      exp_li1: "• 适合情侣、家庭、三五好友聚会",
+      exp_li2: "• 甜点饮品角：提供烘焙、茶、咖啡与冰淇淋",
+      exp_li3: "• 酒饮角：啤酒、烈酒、葡萄酒一应俱全",
+      exp_li4: "• 多个打卡拍照角，展现清莱特色",
+      exp_li5: "• 停车空间充足，出入方便",
+      exp_indoor_caption: "冷气开放式室内区，舒适好坐",
+      exp_outdoor_caption: "凉风习习的户外区，很适合小酌聊天",
+
+      sig_title: "招牌菜推荐",
+      sig_desc: "从传统北泰料理到本地渔获料理，这些是最能代表本店的几道菜。",
+      sig_note: "* 菜名、价格及照片可依照实际菜单调整。",
+
+      label_northern: "北泰料理",
+      label_localfish: "本地鲜鱼",
+      label_sharing: "分享拼盘",
+
+      dish1_name: "鸡肉咖喱蛋面（Khao Soi）",
+      dish1_desc: "浓郁咖喱汤配蛋面与嫩鸡腿，附传统配菜。",
+      dish2_name: "湄公河香草烤鱼",
+      dish2_desc: "以香茅、卡菲尔酸橙叶等香草腌制的本地河鱼，炭火慢烤。",
+      dish3_name: "清莱前菜拼盘 + 精酿啤酒",
+      dish3_desc: "北方香肠、炸猪皮、辣椒酱、川烫蔬菜与多种炸物拼盘。",
+      dish4_name: "清莱前菜拼盘 + 精酿啤酒",
+      dish4_desc: "适合多人分享，一边聊天一边享用。",
+      dish5_name: "清莱前菜拼盘 + 精酿啤酒",
+      dish5_desc: "一次品尝多种北泰小吃的理想选择。",
+      dish6_name: "咸蛋黄炒鱿鱼",
+      dish6_desc: "香浓咸蛋黄裹上弹牙鱿鱼，配白饭最对味。",
+      dish7_name: "咖喱炒蟹",
+      dish7_desc: "浓郁咖喱与鸡蛋包裹蟹肉，香气十足。",
+      dish8_name: "北方风味拼盘",
+      dish8_desc: "集合多种北泰小菜，适合全桌一起分享。",
+      dish9_name: "青辣椒蘸酱（Nam Prik Noom）",
+      dish9_desc: "传统北方青辣椒蘸酱，配蔬菜与炸猪皮。",
+      dish10_name: "辣炒扇贝",
+      dish10_desc: "扇贝搭配泰式香草爆炒，香辣开胃。",
+      dish11_name: "冬阴功汤",
+      dish11_desc: "经典泰式酸辣虾汤，带有浓郁香茅与南姜香气。",
+      dish12_name: "脆皮烧肉",
+      dish12_desc: "外皮酥脆、内里软嫩的烧肉，附特制蘸酱。",
+      dish13_name: "柚子拌辣沙拉",
+      dish13_desc: "以新鲜柚子拌入泰式酸辣酱汁，酸甜清爽。",
+
+      origin_title: "清莱当地渔业与农户的食材",
+      origin_p: "所有菜色皆精挑细选，采用本地渔民打捞的新鲜鱼类与清莱农户种植的蔬菜，让您吃得安心又支持在地社区。",
+      origin_li1: "• 海鲜与河鲜直接来自在地小型渔民",
+      origin_li2: "• 由清莱农民种植的无农药蔬菜",
+      origin_li3: "• 合理、亲民的价格，人人都能轻松享用",
+
+      contact_title: "订位 • 咨询菜单 • 小型包场",
+      contact_p1: "新鲜海鲜、浓郁咖喱面、泰式与北泰料理，多种菜单等你来尝，一起感受“北方风味”的美味。",
+      contact_p2: "无论是两人约会、家庭聚餐或小型聚会，都欢迎透过电话、Line 或亲自到店洽询订位。",
+      contact_phone_label: "电话:",
+      contact_line_label: "Line:",
+      contact_address: "📍 地址：请填写店铺实际地址（街道 / 分区 / 县区 / 清莱府）。",
+      contact_time: "⏰ 营业时间：每日 11:00–23:00",
+      contact_cta_call: "立即拨打电话订位",
+      contact_cta_top: "回到顶部",
+
+      footer_brand: "清莱北方风味 — Mueang Nuea",
+      footer_credit: "网站由店主 / 团队设计与开发"
+    }
+  };
+
+  function applyTranslations(lang) {
+    const elements = document.querySelectorAll("[data-i18n]");
+    elements.forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      const value = translations[lang] && translations[lang][key];
+      if (!value) return;
+
+      const attr = el.getAttribute("data-i18n-attr");
+      if (attr) {
+        el.setAttribute(attr, value);
+      } else {
+        el.textContent = value;
+      }
+    });
+  }
+
+  function setLanguage(lang) {
+    if (!translations[lang]) return;
+    applyTranslations(lang);
+    localStorage.setItem("siteLanguage", lang);
+
+    // set <html lang="...">
+    document.documentElement.lang = lang;
+
+    // ไฮไลต์ปุ่มภาษา
+    document.querySelectorAll("[data-lang-btn]").forEach(btn => {
+      const isActive = btn.getAttribute("data-lang-btn") === lang;
+      btn.classList.toggle("bg-purple-900/60", isActive);
+      btn.classList.toggle("bg-slate-900", !isActive);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("siteLanguage") || "th";
+    setLanguage(saved);
+
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // ----- HERO SLIDER -----
+    const slides = document.querySelectorAll("[data-slide]");
+    const dots = document.querySelectorAll("[data-dot]");
+    let current = 0;
+
+    function updateSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove("hidden", "opacity-0");
+        } else {
+          slide.classList.add("opacity-0", "hidden");
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.add("bg-slate-50");
+          dot.classList.remove("bg-slate-500");
+        } else {
+          dot.classList.add("bg-slate-500");
+          dot.classList.remove("bg-slate-50");
+        }
+      });
+
+      current = index;
+    }
+
+    function nextSlide() {
+      const next = (current + 1) % slides.length;
+      updateSlide(next);
+    }
+
+    function prevSlide() {
+      const prev = (current - 1 + slides.length) % slides.length;
+      updateSlide(prev);
+    }
+
+    window.heroNextSlide = nextSlide;
+    window.heroPrevSlide = prevSlide;
+    window.heroGoToSlide = updateSlide;
+
+    updateSlide(0);
+    setInterval(nextSlide, 8000);
+  });
+</script>
+
+</body>
+</html>
